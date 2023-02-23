@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("SixTakesUnitTest")]
 namespace SixTakes
 {
 
 
     internal class Line
     {
-        static int CardValue(int card)
+        internal static int CardValue(int card)
         {
             if (card == 55) return 7;
             else if (card % 11 == 0) return 5;

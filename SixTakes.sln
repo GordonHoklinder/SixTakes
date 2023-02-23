@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixTakes", "SixTakes\SixTakes.csproj", "{5C39589C-4DD1-4895-A3AB-862CF4036A39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SixTakes", "SixTakes\SixTakes.csproj", "{5C39589C-4DD1-4895-A3AB-862CF4036A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixTakesUnitTest", "SixTakesUnitTest\SixTakesUnitTest.csproj", "{684C0C5D-3CA2-4984-965F-4741888F3BFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5C39589C-4DD1-4895-A3AB-862CF4036A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C39589C-4DD1-4895-A3AB-862CF4036A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C39589C-4DD1-4895-A3AB-862CF4036A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{684C0C5D-3CA2-4984-965F-4741888F3BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684C0C5D-3CA2-4984-965F-4741888F3BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684C0C5D-3CA2-4984-965F-4741888F3BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684C0C5D-3CA2-4984-965F-4741888F3BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
