@@ -127,6 +127,7 @@ namespace SixTakes
 
         public void PlayCards(List<int> cards, List<Func<List<int>, int>>? selectors = null)
         {
+            if (cards.Count != Players.Count) throw new ArgumentException($"cards have size {cards.Count} but should have {Players.Count}.");
             List<(int, int)> indexedCards = new();
             for (int i = 0; i < cards.Count; i++)
             {

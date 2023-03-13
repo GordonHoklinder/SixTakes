@@ -19,7 +19,7 @@
             Dealer = new Dealer(PlayerList.Count);
             for (int i = 0; i < Rounds; i++)
             {
-                Game = Dealer?.Deal();
+                Game = Dealer?.Deal(Game);
                 for (int j = 0; j < PlayerList.Count; j++)
                 {
                     PlayerList[j].Game = Game;
