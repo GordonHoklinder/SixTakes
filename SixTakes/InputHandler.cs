@@ -91,6 +91,7 @@ namespace SixTakes
                 'r' => new RandomReasonablePlayer { ID= id },
                 'C' => new ClosestValuePlayer { ID= id },
                 'M' => new MonteCarloPlayer { ID = id },
+                'E' => new ExpectedValuePlayer { ID = id },
                 _ => (Player?)null,
             } ;
         }
@@ -104,7 +105,8 @@ namespace SixTakes
             Console.WriteLine("  R - random player");
             Console.WriteLine("  r - random player selecting the cheapest row");
             Console.WriteLine("  C - player playing the closest card");
-            Console.WriteLine("  M - one iteration monte carlo player");
+            Console.WriteLine("  M - Monte Carlo player");
+            Console.WriteLine("  E - Player minimizing expected value of loss");
 
             do
             {

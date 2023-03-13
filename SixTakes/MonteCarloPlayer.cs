@@ -8,7 +8,20 @@ namespace SixTakes
 {
     internal class MonteCarloPlayer : MinLineTakePlayer
     {
-        Random rng = new Random();
+        protected Random rng = new Random();
+
+        protected virtual int Aggregate(int global, int next)
+        {
+            return Math.Max(global, next);
+        }
+        protected virtual int Decide (List<int> scores)
+        {
+            return scores.IndexOf(scores.Min());
+        }
+
+        protected virtual int SearchDepth() => 2;
+        
+        protected virtual int InitialIterations() => 200;
 
         protected List<int> ChooseRemainingCardsBySorting(Game game, int count)
         {
@@ -44,7 +57,7 @@ namespace SixTakes
             return ChooseRemainingCardsRandomly(game, count);           
         }
 
-        protected (int, int) MonteCarlo(List<int> hand, Game game, int depth, int iterations = 200)
+        protected (int, int) MonteCarlo(List<int> hand, Game game, int depth, int iterations)
         {
             // Stores the highest scaled value of Score - average of Score of opponents.
             List<int> worstCaseScore = new List<int>(new int[hand.Count]);
@@ -69,23 +82,31 @@ namespace SixTakes
                         int newIterations = (int)Math.Sqrt(iterations);
                         scoreDifference = MonteCarlo(newHand, newGame, depth - 1, newIterations).Item2;
                     }
-                    worstCaseScore[i] = Math.Max(worstCaseScore[i], scoreDifference);
+                    worstCaseScore[i] = Aggregate(worstCaseScore[i], scoreDifference);
                 }
             }
 
-            int worst = worstCaseScore.Min();
-            return (worstCaseScore.IndexOf(worst), worst);
+            int choice = Decide(worstCaseScore);
+            return (choice, worstCaseScore[choice]);
         }
 
-        protected int MonteCarlo(int depth = 2)
+        protected int MonteCarlo()
         {
-            return MonteCarlo(Hand, Game, Math.Min(Hand.Count, depth)).Item1;
+            return MonteCarlo(Hand, Game, Math.Min(Hand.Count, SearchDepth()), InitialIterations()).Item1;
         }
 
 
         public override int Play()
         {
             return Hand[MonteCarlo()];
+        }
+    }
+
+    internal class ExpectedValuePlayer : MonteCarloPlayer
+    {
+        protected sealed override int Aggregate(int global, int next)
+        {
+            return global + next;
         }
     }
 }
