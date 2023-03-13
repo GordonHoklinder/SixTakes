@@ -75,16 +75,19 @@ namespace SixTakes
         public List<Line> Lines { get; set; }
         public List<PlayerInfo> Players { get; set;}
 
-        public List<int> History { get; set; }
+        public HashSet<int> History { get; set; }
 
         public Game (List<Line> lines, List<PlayerInfo> players)
         { 
             Lines = lines;
             Players = players; 
-            History = new List<int>();
+            History = new HashSet<int>();
             foreach (Line line in Lines)
             {
-                History.AddRange(line.Cards);
+                foreach(var card in line.Cards)
+                {
+                    History.Add(card);
+                }
             }
         }
 
@@ -92,7 +95,7 @@ namespace SixTakes
         {
             Lines = game.Lines.ConvertAll(line => new Line(line));
             Players = game.Players.ConvertAll(player => new PlayerInfo(player));
-            History = new List<int>(game.History);
+            History = new HashSet<int>(game.History);
         }
 
 

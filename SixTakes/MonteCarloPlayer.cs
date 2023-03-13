@@ -37,7 +37,7 @@ namespace SixTakes
             int countPlusHistory = count + game.History.Count;
             // If the expected number of operations of randomly probing values exceeds
             // estimated number of operations of sorting, choose the cards via sorting.
-            if (count * countPlusHistory * (1 - ((double)countPlusHistory) / 105) > 630)
+            if (count * count * (1 - ((double)countPlusHistory) / 105) > 630)
             {
                 return ChooseRemainingCardsBySorting(game, count);
             }
