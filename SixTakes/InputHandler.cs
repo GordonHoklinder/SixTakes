@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace SixTakes
 {
+    /// <summary>
+    /// Class for handling all the interaction with user via CLI.
+    /// </summary>
     internal static class InputHandler
     {
+        /// <summary>
+        /// Print the cards played this turn.
+        /// </summary>
+        /// <param name="playedCards">The values of cards played this turn.</param>
         public static void PrintPlayedCards(List<int> playedCards)
         {
             Console.WriteLine("Cards played this turn: " + String.Join(" ", playedCards));
         }
 
+        /// <summary>
+        /// Print the current content of lines visible to all players.
+        /// </summary>
+        /// <param name="lines">List of 4 lines.</param>
         public static void PrintLines(List<Line> lines)
         {
             for (int i = 0; i < lines.Count; i++)
@@ -21,6 +32,10 @@ namespace SixTakes
             }
         }
 
+        /// <summary>
+        /// Retrieve the line to be taken in case the played card is lower than all the lines.
+        /// </summary>
+        /// <returns>The line entered by user. It is an integer from 0 to 3.</returns>
         public static int GetLine(List<Line> lines, List<int> playedCards)
         {
             Console.WriteLine("Enter a line to be taken.");
@@ -40,6 +55,9 @@ namespace SixTakes
             while (true);
         }
 
+        /// <summary>
+        /// Print the current score for all players
+        /// </summary>
         public static void PrintPlayers(Game game)
         {
             for(int i = 0; i < game.Players.Count;i++)
@@ -48,11 +66,17 @@ namespace SixTakes
             }
         }
 
+        /// <summary>
+        /// Print the cards in hand of the current player.
+        /// </summary>
         public static void PrintHand(List<int> hand)
         {
             Console.WriteLine("Hand: " + String.Join(" ", hand));
         }
 
+        /// <summary>
+        /// Print the current scores, lines and for all user players their hands.
+        /// </summary>
         public static void PrintState(Game game, List<Player> players)
         {
             PrintPlayers(game);
@@ -67,6 +91,10 @@ namespace SixTakes
             }
         }
 
+        /// <summary>
+        /// Retrieves a card to be played by the user player.
+        /// </summary>
+        /// <returns>An integer from [hand].</returns>
         public static int GetPlayedCard(List<int> hand)
         {
             Console.WriteLine("Choose a card to play.");
@@ -82,6 +110,12 @@ namespace SixTakes
             while (true);
         }
 
+        /// <summary>
+        /// Get the player type from its one character code.
+        /// </summary>
+        /// <param name="type">The one character coding.</param>
+        /// <param name="id">The index of the player in the player list.</param>
+        /// <returns>The handler class for a given type. null if the type is not recognized.</returns>
         static Player? GetPlayer(char type, int id)
         {
             return type switch
@@ -100,6 +134,7 @@ namespace SixTakes
         {
             Console.WriteLine("Enter the players for the game.");
             Console.WriteLine("Players are expected to be a string of 2 to 10 characters.");
+            Console.WriteLine("Each player is of a given type and should be represented by one character.");
             Console.WriteLine("Supported player types are:");
             Console.WriteLine("  U - user player");
             Console.WriteLine("  R - random player");
@@ -144,7 +179,7 @@ namespace SixTakes
                 }
                 else
                 {
-                    Console.WriteLine("Not a valid positive integer.");
+                    Console.WriteLine("Not a valid positive integer. Enter again.");
                 }
             }
             while(true);

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SixTakes
 {
+    /// <summary>
+    /// A player that prompts the user to play a card or select a row.
+    /// </summary>
     internal class UserPlayer : Player
     {
         public override int Play()

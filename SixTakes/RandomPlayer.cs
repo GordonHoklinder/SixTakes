@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SixTakes
 {
+    /// <summary>
+    /// Player that plays a random card and if needed selects a random row.
+    /// </summary>
     internal class RandomPlayer : Player
     {
         readonly Random rand = new();
@@ -20,6 +23,9 @@ namespace SixTakes
         }
     }
 
+    /// <summary>
+    /// Player that plays a random card and if needed selects the cheapest row.
+    /// </summary>
     internal class RandomReasonablePlayer : MinLineTakePlayer
     {
         readonly Random rand = new();

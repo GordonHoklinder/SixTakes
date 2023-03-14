@@ -1,5 +1,8 @@
 ﻿namespace SixTakes
 {
+    /// <summary>
+    /// Class for main control of the program flow.
+    /// </summary>
     internal class Program
     {
         static Dealer? Dealer { get; set; }

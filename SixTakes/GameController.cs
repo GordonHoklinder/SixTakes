@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SixTakes
 {
+    /// <summary>
+    /// Class for controlling the simulation of one game.
+    /// </summary>
     internal class GameController
     {
         Game Game { get; }
@@ -17,6 +20,9 @@ namespace SixTakes
             Players = players;
         }
 
+        /// <summary>
+        /// Simulate one game.
+        /// </summary>
         public void Play()
         {
             InputHandler.PrintState(Game, Players);
