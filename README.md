@@ -33,4 +33,4 @@ For the programmer's documentation, see `Documentation.md`.
 
 ## Remarks
 
-This project was written for the Programming in C# Language.
+This project was written for the Programming in C# Language course at Charles University.
