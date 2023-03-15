@@ -6,7 +6,7 @@
     /// </summary>
     internal class MonteCarloPlayer : MinLineTakePlayer
     {
-        protected Random rng = new Random();
+        readonly protected Random rng = new();
 
         /// <summary>
         /// Aggregate a new simulation score result to the aggregated value.
@@ -37,7 +37,7 @@
         /// <summary>
         /// The number of instances of opponent plays in the first round of Monte Carlo search.
         /// </summary>
-        protected virtual int InitialIterations() => 200;
+        protected virtual int InitialIterations() => 100;
 
         /// <summary>
         /// Return distinct list of size [count] of cards which haven't been played.

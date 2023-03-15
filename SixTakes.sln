@@ -5,7 +5,14 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SixTakes", "SixTakes\SixTakes.csproj", "{5C39589C-4DD1-4895-A3AB-862CF4036A39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixTakesUnitTest", "SixTakesUnitTest\SixTakesUnitTest.csproj", "{684C0C5D-3CA2-4984-965F-4741888F3BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SixTakesUnitTest", "SixTakesUnitTest\SixTakesUnitTest.csproj", "{684C0C5D-3CA2-4984-965F-4741888F3BFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC1DDDDA-3828-4689-85E5-65467E93F894}"
+	ProjectSection(SolutionItems) = preProject
+		Comparison.md = Comparison.md
+		Documentation.md = Documentation.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
